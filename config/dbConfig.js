@@ -19,7 +19,7 @@ const dbConfig = new Sequelize(
     port: process.env.DBPORT,
     // Databasetype (MySQL)
     dialect: "mysql",
-  }
+  },
 );
 
 export default dbConfig;
