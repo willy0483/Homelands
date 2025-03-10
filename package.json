@@ -1,0 +1,26 @@
+{
+  "name": "homelands",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/willy0483/Homelands#readme",
+  "bugs": {
+    "url": "https://github.com/willy0483/Homelands/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willy0483/Homelands.git"
+  },
+  "license": "ISC",
+  "author": "William leander jensen",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.13.0",
+    "sequelize": "^6.37.6"
+  }
+}
