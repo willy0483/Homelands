@@ -62,8 +62,7 @@ TOKEN_REFRESH_EXPIRATION_SECS=86400
 nodemon
 ```
 
-## 📡 API Endpoints
-
+## 📡 Postman
 https://documenter.getpostman.com/view/38785077/2sAYk7TQ2r
 
 ## 📜 License
