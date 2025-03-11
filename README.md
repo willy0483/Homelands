@@ -1,6 +1,3 @@
-Here’s a well-structured **README.md** file for your project **Homelands** using **Node.js and Sequelize**:  
-
-```markdown
 # Homelands 🏡
 
 Homelands is a real estate management system built with **Node.js** and **Sequelize**. It provides a structured database schema for managing estates, users, reviews, and images efficiently.
