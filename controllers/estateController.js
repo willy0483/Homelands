@@ -1,6 +1,9 @@
 // Importerer express og testModel
 import express from "express";
 import { estateModel } from "../models/estateModel.js";
+import { estateTypeModel } from "../models/estateTypeModel.js";
+import { cityModel } from "../models/cityModel.js";
+import { energyLabelModel } from "../models/energyLabelModel.js";
 
 // Opretter en router
 export const estateController = express.Router();
@@ -8,7 +11,20 @@ export const estateController = express.Router();
 // READ: Route til at hente liste
 estateController.get("/estates", async (req, res) => {
   try {
-    const data = await estateModel.findAll({});
+    const data = await estateModel.findAll({
+      attributes: { exclude: ["city_id", "type_id", "energy_label_id"] },
+      include: [
+        {
+          model: cityModel,
+        },
+        {
+          model: estateTypeModel,
+        },
+        {
+          model: energyLabelModel,
+        },
+      ],
+    });
 
     if (!data || data.length === 0) {
       res.json({ message: "Error: No estates" });
@@ -26,6 +42,18 @@ estateController.get("/estates/:id([0-9]*)", async (req, res) => {
 
     let result = await estateModel.findOne({
       where: { id: id },
+      attributes: { exclude: ["city_id", "type_id", "energy_label_id"] },
+      include: [
+        {
+          model: cityModel,
+        },
+        {
+          model: estateTypeModel,
+        },
+        {
+          model: energyLabelModel,
+        },
+      ],
     });
 
     if (!result) {
@@ -41,7 +69,49 @@ estateController.get("/estates/:id([0-9]*)", async (req, res) => {
 // CREATE: Route til at oprette
 estateController.post("/estates", async (req, res) => {
   try {
-    const result = await estateModel.create(req.body);
+    let {
+      address,
+      price,
+      payout,
+      gross,
+      net,
+      cost,
+      num_rooms,
+      num_floors,
+      floor_space,
+      ground_space,
+      basement_space,
+      year_construction,
+      year_rebuilt,
+      description,
+      floorplan,
+      num_clickscity_id,
+      city_id,
+      type_id,
+      energy_label_id,
+    } = req.body;
+
+    const result = await estateModel.create({
+      address,
+      price,
+      payout,
+      gross,
+      net,
+      cost,
+      num_rooms,
+      num_floors,
+      floor_space,
+      ground_space,
+      basement_space,
+      year_construction,
+      year_rebuilt,
+      description,
+      floorplan,
+      num_clickscity_id,
+      city_id,
+      type_id,
+      energy_label_id,
+    });
     res.status(201).json({ message: "Estate was created", content: result });
   } catch (error) {
     const errorMessage = "Could not create estate";

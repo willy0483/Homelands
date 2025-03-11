@@ -1,5 +1,8 @@
 import dbConfig from "../config/dbConfig.js";
 import { DataTypes, Model } from "sequelize";
+import { cityModel } from "./cityModel.js";
+import { energyLabelModel } from "./energyLabelModel.js";
+import { estateTypeModel } from "./estateTypeModel.js";
 
 export class estateModel extends Model {}
 
@@ -77,16 +80,28 @@ estateModel.init(
       defaultValue: 0,
     },
     city_id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: cityModel,
+        key: "id",
+      },
     },
     type_id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: estateTypeModel,
+        key: "id",
+      },
     },
     energy_label_id: {
-      type: DataTypes.BIGINT,
+      type: DataTypes.INTEGER,
       allowNull: true,
+      references: {
+        model: energyLabelModel,
+        key: "id",
+      },
     },
   },
   {
