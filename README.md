@@ -8,7 +8,7 @@ Homelands is a real estate management system built with **Node.js** and **Sequel
 - **User Authentication**: Secure user login with hashed passwords.
 - **Favorites & Reviews**: Users can save their favorite estates and leave reviews.
 - **Image Management**: Upload and associate images with estates.
-- **Staff & Admin Panel**: Manage system staff with assigned roles.
+- **Staff &**: Manage system staff.
 
 ## 🏗 Database Schema (Sequelize Models)
 
