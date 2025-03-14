@@ -64,6 +64,3 @@ nodemon
 
 ## 📡 Postman
 https://documenter.getpostman.com/view/38785077/2sAYk7TQ2r
-
-## 📜 License
-This project is licensed under the MIT License.
